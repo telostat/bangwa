@@ -1,0 +1,33 @@
+\name{getWeights}
+\alias{getWeights}
+\title{Calculates the weights of position data.}
+\usage{
+getWeights(dateList, actPos, AUM)
+}
+\arguments{
+  \item{dateList}{the list with dates as POSIXct for which
+  weights should be calculated.}
+
+  \item{actPos}{an xts object with position data as nominal
+  values.}
+
+  \item{AUM}{a numeric value indicating the asset under
+  management at beginning.}
+}
+\value{
+weights
+}
+\description{
+\code{getWeights} is a function that calculates the
+percentage weights of positions data and returns a list
+with weights. As arguments,##' it consumes the list of
+dates for which one wants to know the weights, the position
+data as nominal units and the starting AUM.
+}
+\examples{
+dates <- as.POSIXct(c(("2010-01-01"), ("2010-02-01"), ("2010-03-01")))
+AUM   <- 1000
+myPos <- as.xts(data.frame(A=c(100, -200, 400), B=c(200, 400, -200)), order.by=dates)
+myWeights <- getWeights(as.list(dates), myPos, AUM)
+}
+

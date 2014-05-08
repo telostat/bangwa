@@ -1,0 +1,22 @@
+\name{expWeight}
+\alias{expWeight}
+\title{Returns the exponentially-weighted series of the original series.}
+\usage{
+expWeight(x, lambda)
+}
+\arguments{
+  \item{x}{the original univariate series}
+
+  \item{lambda}{the parameter for the weighting scheme}
+}
+\description{
+\code{expWeights} is a function that calculates the
+exponential weight vector and multiplied the original
+series. It consumes a lambda parameter.
+}
+\examples{
+returns   <- as.data.frame(rnorm(12) / 100)
+lambda    <- 0.94
+myExpW    <- expWeight(returns, lambda)
+}
+
