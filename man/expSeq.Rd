@@ -1,0 +1,28 @@
+\name{expSeq}
+\alias{expSeq}
+\title{Returns a vector sequence of exponential weights of a lambda
+factor.}
+\usage{
+expSeq(length, lambda, start = 0L)
+}
+\arguments{
+  \item{length}{desired length of the sequence.}
+
+  \item{lambda}{parameter for the weighting scheme}
+
+  \item{start}{starting index of the sequence, defaults to
+  0.}
+}
+\value{
+a vector of exponential weights
+}
+\description{
+Returns a vector sequence of exponential weights of a
+lambda factor.
+}
+\examples{
+inVector <- rnorm(100)
+expWeights <- expSeq(length(inVector), lambda=0.94, start=0L)
+outVector <- inVector * expWeights
+}
+
