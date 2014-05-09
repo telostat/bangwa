@@ -24,11 +24,11 @@ expSeq <- function (length, lambda, start=0L) {
 ##' @return the exponentially-weighted series
 ##' @examples
 ##' rets <- data.frame(rets=rnorm(12) / 100)
-##' expRets <- expWeighted(as.vector(frame$rets), 0.94)
+##' expRets <- expWeighted(as.vector(rets$rets), 0.94)
 ##' @export
 expWeighted <- function (x, lambda) {
   stopifnot(is.vector(x))
-  expSeq(length(x), lambda)
+  x * expSeq(length(x), lambda)
 }
 
 ##' Returns the exponentially-weighted series of the original series.
@@ -39,9 +39,9 @@ expWeighted <- function (x, lambda) {
 ##' @param x the original univariate series
 ##' @param lambda the parameter for the weighting scheme
 ##' @examples
-##' returns  <- as.data.frame(rnorm(12) / 100)
-##' lambda   <- 0.94
-##' myExpW   <- expWeight(returns, lambda)
+##' returns   <- as.data.frame(rnorm(12) / 100)
+##' lambda    <- 0.94
+##' myExpW    <- expWeight(returns, lambda)
 ##' @export
 ##' @depreciate
 expWeight <- function (x, lambda) {
