@@ -23,7 +23,6 @@ performanceAnalytics <- function(x, frequency){
    peaktotrough <- max(findDrawdowns(x)$peaktotrough)
    recovery     <- max(findDrawdowns(x)$recovery)
 
-   browser()
    return(rbind("Total Return" = totRet, "Annualised Return" = annRet, "Annualised Volatility" = annVol,
                "Sharpe"   = sharpe, "Max Drawdown"  = maxDD, "Sortino" = sortino,
                "Peak-to-Through" = peaktotrough, "Recovery" = recovery))
