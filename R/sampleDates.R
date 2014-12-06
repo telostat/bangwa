@@ -1,44 +1,51 @@
-##' Returns a list with each element showing in-sample and out-of-sample dates. 
+##' A function which returns a list with each element showing chungked sample dates. 
 ##'
 ##' \code{sampleDates} is a function that returns a list with each element of
 ##' the list showing the in-sample start date, in-sample end date and
-##' out-of-sample date of an vector with xts class values assuming always
-##' rolling one period forward in the sample dates. Further arguments
-##' are the start date and end date of the backtesting and the loob-back
-##' period, i.e. the number of historical in-sample observations. 
-##' @param indexData a vector with xts-class index data
-##' @param startDate the start date of the backtesting period
-##' @param endDate the end date of the backtesting period
-##' @param lookBack the look-back period, i.e. the number of in-sample observations.
+##' out-of-sample date
+##' @param data TODO
+##' @param startDate TODO
+##' @param endDate TODO
+##' @param lookBack TODO
+##' @param timeZone TODO
+##' @param format TODO
 ##' @examples
-##' indexData <- seq(as.POSIXct("2000-01-01"), by = "month", length.out = 200)
+##' myIndex   <- seq(as.POSIXct("2000-01-01"), as.POSIXct("2012-01-01"), by="month")
+##' data      <- as.xts(cbind(rnorm(length(myIndex)), rnorm(length(myIndex))), myIndex) 
 ##' startDate <- "2005-01-01"
-##' endDate   <- "2006-01-01"
+##' endDate   <- "2008-01-01"
 ##' lookBack  <- 36
-##' mySamples <- sampleDates(indexData,  startDate, endDate, lookBack)
+##' mySamples <- sampleDates(data, startDate, endDate, lookBack)
+##' @import xts
 ##' @export
-sampleDates <- function (indexData, startDate, endDate, lookBack) {
+sampleDates <- function (data, startDate, endDate, lookBack, timeZone="GMT", format="%Y-%m-%d") {
 
-    startDate    <- as.POSIXct(startDate)
-    endDate      <- as.POSIXct(endDate)
+    indexData    <- as.POSIXct(index(data), tz = timeZone, format = format)
+    startDate    <- as.POSIXct(startDate, tz = timeZone, format = format)
+    endDate      <- as.POSIXct(endDate, tz = timeZone, format = format)
+
+    sampleEnd       <- indexData[(which(abs(indexData - endDate) == min(abs(indexData - endDate))))]
+    sampleStart     <- indexData[(which(abs(indexData - startDate) == min(abs(indexData - startDate))))]
+    sampleDates     <- indexData[which(indexData >= sampleStart & indexData <= sampleEnd)]
+    oosObservations <- length(sampleDates) - lookBack - 1
     
-    isStartDate  <- indexData[(which(abs(indexData - startDate) ==
-                                     min(abs(indexData - startDate))))-lookBack]
-    isEndDate    <- indexData[(which(abs(indexData - isStartDate) ==
-                                     min(abs(indexData - isStartDate))))+lookBack]
-    oosStartDate <- indexData[(which(abs(indexData - isEndDate) ==
-                                     min(abs(indexData - isEndDate))) + 1)]
-    oosEndDate   <- indexData[which(abs(indexData - endDate) ==
-                                    min(abs(indexData - endDate)))]
-    oosPeriod    <- length(indexData[which(indexData >= oosStartDate & indexData <= oosEndDate)])
-
     dateList <- NULL
-  for(i in 1:oosPeriod){
-    isStartDateX  <- indexData[which(indexData == isStartDate) + (i - 1)]
-    isEndDateX    <- indexData[which(indexData == isEndDate) + (i - 1)]
-    oosStartDateX <- indexData[which(indexData == isEndDate) + i]
-    dates         <- c(isStartDateX, isEndDateX, oosStartDateX)
-    dateList      <- c(dateList, list(dates))
-}
-    dateList
+
+    for(i in 1:oosObservations){
+        isStart       <- indexData[which(indexData == sampleStart) + (i - 1)]
+        isEnd         <- indexData[which(indexData == isStart) + lookBack]
+        oosStart      <- indexData[which(indexData == isEnd) + 1]
+        dates         <- list(isStart, isEnd, oosStart)
+        dateList      <- c(dateList, list(dates))
+    }
+    
+    auxFun <- function(sampleDates, data){
+
+        data[which(index(data) >= sampleDates[[1]] &
+                   index(data) <= sampleDates[[3]]),]
+    }
+
+    data <- lapply(dateList, auxFun , data)
+
+    data
 }
