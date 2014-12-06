@@ -1,6 +1,6 @@
 Package: bangwa
 Title: missionts sandbox package for financial research
-Version: 0.0-2
+Version: 0.0-3
 Authors@R: c(
     person(given="Vehbi Sinan", family="Tunalioglu", email="vst@vsthost.com",
     role=c("cre", "aut")),
@@ -10,7 +10,9 @@ Description: This package provides sandbox environment for R functionality
     required for our financial research.
 Depends:
     R (>= 3.0.0),
-    xts (>= 0.9-7)
+    xts (>= 0.9-7),
+    PerformanceAnalytics,
+    tseries
 Suggests:
     devtools
 License: Proprietary
