@@ -43,7 +43,6 @@ expWeighted <- function (x, lambda) {
 ##' lambda    <- 0.94
 ##' myExpW    <- expWeight(returns, lambda)
 ##' @export
-##' @depreciate
 expWeight <- function (x, lambda) {
   .Deprecated("expWeighted",
               package="ors",

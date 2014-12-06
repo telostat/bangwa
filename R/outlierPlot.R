@@ -1,7 +1,6 @@
 ##' This function plots the original price series and the corresponding
 ##' outlier treated series.
 ##' 
-##' @param price TODO
 ##' @param originalSeries TODO
 ##' @param newSeries TODO
 ##' @param outlierIndex TODO
