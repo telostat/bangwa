@@ -1,4 +1,4 @@
-##' Constructs \code{orsDEoptim} parameters.
+##' Simulates random portfolios.
 ##'
 ##' @param weights A vector of weights as provided by the PM.
 ##' @param minWeight The minimum possible weight constraint per asset.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/portRandomizer.R
 \name{portRandomizer}
 \alias{portRandomizer}
-\title{Constructs \code{orsDEoptim} parameters.}
+\title{Simulates random portfolios.}
 \usage{
 portRandomizer(weights, minWeight, maxWeight, minTotalNetWeight,
   minTotalGrossWeight, maxTotalNetWeight, maxTotalGrossWeight, noOfSteps, sims)
@@ -36,7 +36,7 @@ A list of random deviations, portfolios, lower bound,
 and upper bound.
 }
 \description{
-Constructs \code{orsDEoptim} parameters.
+Simulates random portfolios.
 }
 \examples{
 weights             <- c(0.10, -0.05, 0.20, 0.05, -0.01)

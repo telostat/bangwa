@@ -13,7 +13,9 @@ Depends:
     xts (>= 0.9-7),
     PerformanceAnalytics,
     tseries, 
-    timeSeries
+    timeSeries,
+    rootSolve,
+    randtoolbox
 Suggests:
     devtools
 License: Proprietary
