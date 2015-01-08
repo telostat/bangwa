@@ -12,7 +12,8 @@ Depends:
     R (>= 3.0.0),
     xts (>= 0.9-7),
     PerformanceAnalytics,
-    tseries
+    tseries, 
+    timeSeries
 Suggests:
     devtools
 License: Proprietary

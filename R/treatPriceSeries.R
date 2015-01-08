@@ -6,6 +6,7 @@
 ##' @param quantile The quantile for the outlier detection
 ##' @param surpressPause TODO
 ##' @return Cleaned price series
+##' @import timeSeries
 ##' @export
 ##'
 treatPriceSeries <- function(price, outlierTreatment = FALSE, OHLC = FALSE, quantile=0.998, surpressPause=FALSE){
