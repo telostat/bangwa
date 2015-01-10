@@ -4,12 +4,12 @@
 ##' @param outlierTreatment Flag for treating outliers. 
 ##' @param OHLC Flag to indicate whether we are dealing with OHLC.
 ##' @param quantile The quantile for the outlier detection
-##' @param surpressPause TODO
+##' @param surpressPlot TODO
 ##' @return Cleaned price series
 ##' @import timeSeries
 ##' @export
 ##'
-treatPriceSeries <- function(price, outlierTreatment = FALSE, OHLC = FALSE, quantile=0.998, surpressPause=FALSE){
+treatPriceSeries <- function(price, outlierTreatment = FALSE, OHLC = FALSE, quantile=0.998, surpressPlot=FALSE){
 
     ## Remove NA's and replace with last observable value:
      price         <- as.xts(na.locf(price))
@@ -76,14 +76,13 @@ treatPriceSeries <- function(price, outlierTreatment = FALSE, OHLC = FALSE, quan
 
      ## Reconstruct the price series:
      price <- as.xts(cumprod(1+originalRets) * as.numeric(originalPrice[1]), order.by=index(originalPrice))
-
-     ## Run the outlier plot:
-     outlierPlot(originalPrice, price, outlierIndex)
      
-     if(surpressPause == FALSE){
-     readline(prompt = "Pause. Press <Enter> to continue...")
- }
-     dev.off()
+     if(surpressPlot == FALSE){
+         ## Run the outlier plot:
+         outlierPlot(originalPrice, price, outlierIndex) 
+         readline(prompt = "Pause. Press <Enter> to continue...")
+         dev.off()         
+     }
      ## For OHLC series, reconstruct the open, high, low using original distances:
      if(OHLC == TRUE){
          price <- cbind("Open" = price / clOpen, "High" = price / clHigh, "Low"=price / clLow, "Close"=price)
