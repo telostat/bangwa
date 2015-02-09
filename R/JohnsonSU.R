@@ -130,7 +130,7 @@ johnsonSim = function(mean, sd, skewness, excess.kurtosis,sims=1000){
     johnson.params <- johnsonSU(mean,sd,skewness,excess.kurtosis)
     
     if(!is.na(johnson.params[1])){
-        print(johnson.params)
+        #print(johnson.params)
         z.norm <- halton(sims, dim = 1, norm = TRUE)
         z.johnson <- johnson.params$scale*sinh((z.norm-johnson.params$skewness)/johnson.params$kurtosis)+johnson.params$location
         return(z.johnson)
