@@ -26,7 +26,7 @@ expSeq <- function (length, lambda, start=0L) {
 ##' rets <- data.frame(rets=rnorm(12) / 100)
 ##' expRets <- expWeighted(as.vector(rets$rets), 0.94)
 ##' @export
-expWeighted <- function (x, lambda) {
+expWeighted <- function (x, lambda=0.94) {
   stopifnot(is.vector(x))
   x * expSeq(length(x), lambda)
 }

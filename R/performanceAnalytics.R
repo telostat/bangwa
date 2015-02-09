@@ -13,6 +13,7 @@
 ##' @export
 performanceAnalytics <- function(x, frequency){
 
+   x            <- as.xts(x)
    x            <- na.omit(x)
    totRet       <- sum(x)
    annRet       <- mean(x) * frequency
@@ -22,8 +23,24 @@ performanceAnalytics <- function(x, frequency){
    sortino      <- sum(x) / maxDD
    peaktotrough <- max(findDrawdowns(x)$peaktotrough)
    recovery     <- max(findDrawdowns(x)$recovery)
+   annualRets   <- apply.yearly(x, sum)
+   bestYear     <- as.numeric(annualRets[which(annualRets == max(annualRets))])
+   worstYear    <- as.numeric(annualRets[which(annualRets == min(annualRets))])
+   hitRatio     <- as.numeric(sum(x > 0) / length(x))
+   indexLow     <- as.numeric(min(1+cumsum(x)))
 
-   return(rbind("Total Return" = totRet, "Annualised Return" = annRet, "Annualised Volatility" = annVol,
-               "Sharpe"   = sharpe, "Max Drawdown"  = maxDD, "Sortino" = sortino,
-               "Peak-to-Through" = peaktotrough, "Recovery" = recovery))
+   return(rbind("Total Return"=totRet,
+                "Annualised Return"=annRet,
+                "Annualised Volatility"=annVol,
+                "Sharpe"=sharpe,
+                "Max Drawdown"=maxDD,
+                "Sortino"=sortino,
+                "Peak-to-Through"=peaktotrough,
+                "Recovery"=recovery,
+                "Best Year"=bestYear,
+                "Worst Year"=worstYear,
+                "Hit Ratio"=hitRatio,
+                "Index Low"=indexLow
+                )
+          )
 }
