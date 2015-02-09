@@ -13,7 +13,7 @@
 ##' @export
 performanceAnalytics <- function(x, frequency){
 
-   x            <- as.xts(x) 
+   x            <- as.xts(x)
    x            <- na.omit(x)
    totRet       <- sum(x)
    annRet       <- mean(x) * frequency
@@ -24,10 +24,10 @@ performanceAnalytics <- function(x, frequency){
    peaktotrough <- max(findDrawdowns(x)$peaktotrough)
    recovery     <- max(findDrawdowns(x)$recovery)
    annualRets   <- apply.yearly(x, sum)
-   bestYear     <- annualRets[which(annualRets == max(annualRets))]
-   worstYear    <- annualRets[which(annualRets == min(annualRets))]
-   hitRatio     <- sum(x > 0) / length(x)
-   indexLow     <- min(1+cumsum(x))
+   bestYear     <- as.numeric(annualRets[which(annualRets == max(annualRets))])
+   worstYear    <- as.numeric(annualRets[which(annualRets == min(annualRets))])
+   hitRatio     <- as.numeric(sum(x > 0) / length(x))
+   indexLow     <- as.numeric(min(1+cumsum(x)))
 
    return(rbind("Total Return"=totRet,
                 "Annualised Return"=annRet,
