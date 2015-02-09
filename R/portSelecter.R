@@ -16,6 +16,7 @@
 ##' @param statsFN TODO
 ##' @param selectFN TODO
 ##' @param dataFN TODO
+##' @param ... TODO
 ##' @return A list of random deviations, portfolios, lower bound,
 ##' and upper bound.
 ##' @export
