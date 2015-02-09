@@ -23,7 +23,7 @@ performanceAnalytics <- function(x, frequency){
    sortino      <- sum(x) / maxDD
    peaktotrough <- max(findDrawdowns(x)$peaktotrough)
    recovery     <- max(findDrawdowns(x)$recovery)
-   annualRets   <- apply.yearly(x, sum)
+   annualRets   <- na.omit(rollapply(x, 12, sum))
    bestYear     <- as.numeric(annualRets[which(annualRets == max(annualRets))])
    worstYear    <- as.numeric(annualRets[which(annualRets == min(annualRets))])
    hitRatio     <- as.numeric(sum(x > 0) / length(x))
