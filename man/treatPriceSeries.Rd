@@ -5,7 +5,7 @@
 \title{This function removes NA's and optionally detects and remove outliers.}
 \usage{
 treatPriceSeries(price, outlierTreatment = FALSE, OHLC = FALSE,
-  quantile = 0.998, surpressPause = FALSE)
+  quantile = 0.998, surpressPlot = FALSE)
 }
 \arguments{
 \item{price}{The xts price series (either univariate or OHLC).}
@@ -16,7 +16,7 @@ treatPriceSeries(price, outlierTreatment = FALSE, OHLC = FALSE,
 
 \item{quantile}{The quantile for the outlier detection}
 
-\item{surpressPause}{TODO}
+\item{surpressPlot}{TODO}
 }
 \value{
 Cleaned price series

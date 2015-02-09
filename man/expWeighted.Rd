@@ -4,7 +4,7 @@
 \alias{expWeighted}
 \title{Returns the exponentially-weighted series of the original series.}
 \usage{
-expWeighted(x, lambda)
+expWeighted(x, lambda = 0.94)
 }
 \arguments{
 \item{x}{the original univariate series}

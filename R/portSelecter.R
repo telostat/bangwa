@@ -21,7 +21,6 @@
 ##' @param dataFN TODO
 ##' @return A list of random deviations, portfolios, lower bound,
 ##' and upper bound.
-##' @import bangwa
 ##' @export
 ##' 
 portSelecter <- function(priceSeries,
