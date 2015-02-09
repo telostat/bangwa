@@ -3,9 +3,6 @@
 ##' @param priceSeries A xts data-frame with asset prices. 
 ##' @param startDate TODO
 ##' @param endDate TODO
-##' @param quote TODO
-##' @param compression TODO
-##' @param provider TODO
 ##' @param weights TODO
 ##' @param lookBack TODO
 ##' @param minWeight TODO

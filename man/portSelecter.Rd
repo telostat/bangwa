@@ -40,12 +40,6 @@ portSelecter(priceSeries, startDate, endDate, weights, lookBack, minWeight,
 \item{selectFN}{TODO}
 
 \item{dataFN}{TODO}
-
-\item{quote}{TODO}
-
-\item{compression}{TODO}
-
-\item{provider}{TODO}
 }
 \value{
 A list of random deviations, portfolios, lower bound,
