@@ -1,5 +1,7 @@
-#' bangwa.
-#'
-#' @name bangwa
-#' @docType package
+##' bangwa.
+##'
+##' @name bangwa
+##' @docType package
+##' @useDynLib bangwa
+##' @importFrom Rcpp evalCpp
 NULL
