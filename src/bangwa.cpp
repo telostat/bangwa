@@ -3,7 +3,7 @@
 
 
 // [[Rcpp::export]]
-Rcpp::NumericMatrix mvReturns (Rcpp::NumericMatrix levels) {
+Rcpp::NumericMatrix mvReturns (const Rcpp::NumericMatrix levels) {
   // Can we compute the returns:
   if (levels.nrow() < 2 || levels.ncol() == 0) {
     // Nope, raise error:
@@ -30,7 +30,7 @@ Rcpp::NumericMatrix mvReturns (Rcpp::NumericMatrix levels) {
 
 
 // [[Rcpp::export]]
-Rcpp::NumericVector uvReturns (Rcpp::NumericVector levels) {
+Rcpp::NumericVector uvReturns (const Rcpp::NumericVector levels) {
   // Can we compute the returns:
   if (levels.size() < 2) {
     // Nope, raise error:
