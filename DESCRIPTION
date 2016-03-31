@@ -8,12 +8,6 @@ Description: This package provides sandbox environment for R functionality
     required for our financial research.
 Depends:
     R (>= 3.0.0),
-    xts (>= 0.9-7),
-    PerformanceAnalytics,
-    tseries,
-    timeSeries,
-    rootSolve,
-    randtoolbox
 Imports:
     Rcpp (>= 0.12.3)
 Suggests:
@@ -21,6 +15,6 @@ Suggests:
     testthat,
     roxygen2
 LinkingTo: Rcpp
-License: Proprietary
+License: GPL
 LazyData: true
 RoxygenNote: 5.0.1

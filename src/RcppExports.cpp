@@ -6,23 +6,23 @@
 using namespace Rcpp;
 
 // mvReturns
-Rcpp::NumericMatrix mvReturns(Rcpp::NumericMatrix levels);
+Rcpp::NumericMatrix mvReturns(const Rcpp::NumericMatrix levels);
 RcppExport SEXP bangwa_mvReturns(SEXP levelsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type levels(levelsSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericMatrix >::type levels(levelsSEXP);
     __result = Rcpp::wrap(mvReturns(levels));
     return __result;
 END_RCPP
 }
 // uvReturns
-Rcpp::NumericVector uvReturns(Rcpp::NumericVector levels);
+Rcpp::NumericVector uvReturns(const Rcpp::NumericVector levels);
 RcppExport SEXP bangwa_uvReturns(SEXP levelsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type levels(levelsSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type levels(levelsSEXP);
     __result = Rcpp::wrap(uvReturns(levels));
     return __result;
 END_RCPP
