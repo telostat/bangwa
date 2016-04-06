@@ -24,6 +24,16 @@ Rcpp::NumericMatrix mvReturns (const Rcpp::NumericMatrix levels) {
     }
   }
 
+  // Lastly, apply the column:
+  Rcpp::colnames(returns) = Rcpp::colnames(levels);
+
+  // Apply row names:
+  if (!Rf_isNull(Rcpp::rownames(levels))) {
+    Rcpp::CharacterVector rownames = Rcpp::rownames(levels);
+    rownames.erase(0);
+    Rcpp::rownames(returns) = rownames;
+  }
+
   // Done, return computed returns:
   return returns;
 }
