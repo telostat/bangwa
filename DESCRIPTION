@@ -9,7 +9,8 @@ Description: This package provides sandbox environment for R functionality
 Depends:
     R (>= 3.0.0),
 Imports:
-    Rcpp (>= 0.12.3)
+    Rcpp (>= 0.12.3),
+    limSolve
 Suggests:
     devtools,
     testthat,
