@@ -2,7 +2,9 @@
 
 export(asserta)
 export(classify)
+export(effectify)
 export(mvReturns)
 export(uvReturns)
+import(limSolve)
 importFrom(Rcpp,evalCpp)
 useDynLib(bangwa)
