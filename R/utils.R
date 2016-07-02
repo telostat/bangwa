@@ -130,6 +130,11 @@ asVector <- function (x, names=NULL, fill=NA, type=c("numeric", "logical", "inte
 ##' @import limSolve
 ##' @export
 effectify <- function (directions, assetMin, assetMax, minNet, maxNet, minGrs, maxGrs) {
+    ## If we don't have any directions, return as is:
+    if (length(directions) == 0) {
+        return(list(minNet=minNet, maxNet=maxNet, minGrs=minGrs, maxGrs=maxGrs, status=TRUE))
+    }
+
     ## Compute directed asset mins and maxes, then lower and upper
     ## boundaries:
     dmins <- assetMin * directions
@@ -199,7 +204,7 @@ effectify <- function (directions, assetMin, assetMax, minNet, maxNet, minGrs, m
     H <- c(minNet, -maxNet, 0, 0, 0, minGrs, -maxGrs, 0, 0, 0)
 
     ## Run the solver:
-    result <- try(limSolve::lsei(E=E, F=F, G=G, H=H, type=2))
+    result <- try(limSolve::lsei(E=E, F=F, G=G, H=H, type=2), silent=TRUE)
 
     ## Compute the result and return:
     if (inherits(result, "try-error")) {
