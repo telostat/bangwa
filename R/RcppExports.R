@@ -9,3 +9,31 @@ uvReturns <- function(levels) {
     .Call('bangwa_uvReturns', PACKAGE = 'bangwa', levels)
 }
 
+indexSequence <- function(length) {
+    .Call('bangwa_indexSequence', PACKAGE = 'bangwa', length)
+}
+
+shuffleIndicesDestructive <- function(idx) {
+    .Call('bangwa_shuffleIndicesDestructive', PACKAGE = 'bangwa', idx)
+}
+
+shuffleIndicesSafe <- function(idx) {
+    .Call('bangwa_shuffleIndicesSafe', PACKAGE = 'bangwa', idx)
+}
+
+shuffleIndicesByLength <- function(length) {
+    .Call('bangwa_shuffleIndicesByLength', PACKAGE = 'bangwa', length)
+}
+
+zmbdSafe <- function(target, lower, upper) {
+    .Call('bangwa_zmbdSafe', PACKAGE = 'bangwa', target, lower, upper)
+}
+
+ttbdInner <- function(target, lower, upper) {
+    .Call('bangwa_ttbdInner', PACKAGE = 'bangwa', target, lower, upper)
+}
+
+ttbd <- function(target, lower, upper) {
+    .Call('bangwa_ttbd', PACKAGE = 'bangwa', target, lower, upper)
+}
+

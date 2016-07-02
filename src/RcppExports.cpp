@@ -27,3 +27,86 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// indexSequence
+Rcpp::IntegerVector indexSequence(const int length);
+RcppExport SEXP bangwa_indexSequence(SEXP lengthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type length(lengthSEXP);
+    __result = Rcpp::wrap(indexSequence(length));
+    return __result;
+END_RCPP
+}
+// shuffleIndicesDestructive
+Rcpp::IntegerVector shuffleIndicesDestructive(Rcpp::IntegerVector idx);
+RcppExport SEXP bangwa_shuffleIndicesDestructive(SEXP idxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type idx(idxSEXP);
+    __result = Rcpp::wrap(shuffleIndicesDestructive(idx));
+    return __result;
+END_RCPP
+}
+// shuffleIndicesSafe
+Rcpp::IntegerVector shuffleIndicesSafe(Rcpp::IntegerVector idx);
+RcppExport SEXP bangwa_shuffleIndicesSafe(SEXP idxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type idx(idxSEXP);
+    __result = Rcpp::wrap(shuffleIndicesSafe(idx));
+    return __result;
+END_RCPP
+}
+// shuffleIndicesByLength
+Rcpp::IntegerVector shuffleIndicesByLength(const int length);
+RcppExport SEXP bangwa_shuffleIndicesByLength(SEXP lengthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type length(lengthSEXP);
+    __result = Rcpp::wrap(shuffleIndicesByLength(length));
+    return __result;
+END_RCPP
+}
+// zmbdSafe
+Rcpp::NumericVector zmbdSafe(const double target, const Rcpp::NumericVector lower, const Rcpp::NumericVector upper);
+RcppExport SEXP bangwa_zmbdSafe(SEXP targetSEXP, SEXP lowerSEXP, SEXP upperSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const double >::type target(targetSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type lower(lowerSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type upper(upperSEXP);
+    __result = Rcpp::wrap(zmbdSafe(target, lower, upper));
+    return __result;
+END_RCPP
+}
+// ttbdInner
+Rcpp::NumericVector ttbdInner(const double target, const Rcpp::NumericVector lower, const Rcpp::NumericVector upper);
+RcppExport SEXP bangwa_ttbdInner(SEXP targetSEXP, SEXP lowerSEXP, SEXP upperSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const double >::type target(targetSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type lower(lowerSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type upper(upperSEXP);
+    __result = Rcpp::wrap(ttbdInner(target, lower, upper));
+    return __result;
+END_RCPP
+}
+// ttbd
+Rcpp::NumericVector ttbd(const double target, const Rcpp::NumericVector lower, const Rcpp::NumericVector upper);
+RcppExport SEXP bangwa_ttbd(SEXP targetSEXP, SEXP lowerSEXP, SEXP upperSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const double >::type target(targetSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type lower(lowerSEXP);
+    Rcpp::traits::input_parameter< const Rcpp::NumericVector >::type upper(upperSEXP);
+    __result = Rcpp::wrap(ttbd(target, lower, upper));
+    return __result;
+END_RCPP
+}
