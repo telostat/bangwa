@@ -2,19 +2,19 @@
 % Please edit documentation in R/utils.R
 \name{classify}
 \alias{classify}
-\title{Decorate an object with class}
+\title{Create a Named List with Class Attribute}
 \usage{
-classify(x, klass)
+classify(..klass, ...)
 }
 \arguments{
-\item{x}{Object to be classified.}
+\item{..klass}{The class name(s).}
 
-\item{klass}{The class name.}
+\item{...}{Arbitrary named properties.}
 }
 \value{
 Classified object.
 }
 \description{
-Appends a new class name to an object's class vector and returns.
+Create a Named List with Class Attribute
 }
 

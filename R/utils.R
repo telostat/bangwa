@@ -1,18 +1,19 @@
-##' Decorate an object with class
+##' Create a Named List with Class Attribute
 ##'
-##' Appends a new class name to an object's class vector and returns.
-##'
-##' @param x Object to be classified.
-##' @param klass The class name.
+##' @param ..klass The class name(s).
+##' @param ... Arbitrary named properties.
 ##' @return Classified object.
 ##'
 ##' @export
-classify <- function (x, klass) {
-    ## Set the class name:
-    class(x) <- append(klass, class(x))
+classify <- function (..klass, ...) {
+    ## Get the return value:
+    retval <- list(...)
+
+    ## Set the class name(s):
+    class(retval) <- ..klass
 
     ## Return the object:
-    x
+    retval
 }
 
 ##' Apply Statement over Argument
