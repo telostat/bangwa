@@ -84,6 +84,8 @@ asserta <- function (x, predicate, msg="Error", type=c("stop", "warn", "info", "
 ##' @param fill The value to replace NAs with.
 ##' @param type The type to cast to.
 ##' @return New vector to be returned.
+##'
+##' @export
 asVector <- function (x, names=NULL, fill=NA, type=c("numeric", "logical", "integer", "complex", "character")) {
     ## Make sure that we have a vector:
     x <- as.vector(x, mode=match.arg(type))
