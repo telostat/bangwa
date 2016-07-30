@@ -223,7 +223,8 @@ Rcpp::NumericVector ttbdInner (const double target, const Rcpp::NumericVector lo
   for (int i = 0; i < dimension; i++) {
     const double lowerValue = lower[i];
     const double upperValue = upper[i];
-    const double value = lowerValue == upperValue ? lowerValue : Rf_runif(lowerValue, upperValue);
+    //const double value = lowerValue == upperValue ? lowerValue : Rf_runif(lowerValue, upperValue);
+    const double value = lowerValue == upperValue ? lowerValue : Rf_runif(std::min(lowerValue, upperValue), std::max(lowerValue, upperValue));
     values[i] = value;
     total += value;
   }
