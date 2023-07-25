@@ -1,22 +1,21 @@
 Package: bangwa
-Title: missionts sandbox package for financial research
-Version: 0.0-8
+Title: missionts Sandbox Package for Financial Research
+Version: 0.0-9
 Authors@R: c(
-    person(given="Vehbi Sinan", family="Tunalioglu", email="vst@vsthost.com",
-    role=c("cre", "aut")),
-    person(given="Tolga", family="Sezer", email="tolgasbox@gmail.com",
-    role=c("aut")))
+    person(given="Vehbi Sinan", family="Tunalioglu", email="vst@vsthost.com", role=c("cre", "aut")),
+    person(given="Tolga", family="Sezer", email="tolgasbox@gmail.com", role=c("aut")))
 Description: This package provides sandbox environment for R functionality
     required for our financial research.
 Depends:
     R (>= 3.0.0),
-    xts (>= 0.9-7),
-    PerformanceAnalytics,
-    tseries, 
-    timeSeries,
-    rootSolve,
-    randtoolbox
+Imports:
+    Rcpp (>= 0.12.3),
+    limSolve
 Suggests:
-    devtools
-License: Proprietary
+    devtools,
+    testthat,
+    roxygen2
+LinkingTo: Rcpp
+License: GPL
 LazyData: true
+RoxygenNote: 5.0.1
